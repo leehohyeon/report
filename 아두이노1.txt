@@ -1,0 +1,33 @@
+1. 시나리오
+조도센서를 이용하여 손으로 덮기전과 후의 조도를 측정하고 평균을 계산하고 if문을 활용하여 손으로 덮기전에는 초록색, 손으로 덮으면 빨간색이 되게 한다.
+
+2. 아두이노 코드
+void setup(){
+  Serial.begin(9600);
+}
+int a;
+void loop() {
+  a= analogRead(A0);
+  Serial.println(++a);
+  delay(500);
+}
+3. 프로세싱 코드
+import processing.serial.*;
+Serial p;
+void setup(){
+  size(300,300);
+  p=new Serial(this,"COM4",9600);
+}
+void draw(){
+  if(p.available()>0){
+    String m=p.readString();
+    int a = int(m.trim());
+    println(a);
+    if(a>80) fill(0,255,0);
+    else      fill(255,0,0);
+    ellipse(150,150,200,200);
+}
+}
+4. 소감
+시리얼 통신이라는 걸 직접 해보면서 회로의 센서를 가리면 바로 모니터에서 원의 색깔이 바뀌는 것이 매우 신기해서 아주 재밌게 학습 할 수 있었습니다.
+다음 수업에는 어떤 내용을 또 배우게 될지 기대가 됩니다. 늘 재미있게 수업 해주시는 교수님께 감사드립니다!
