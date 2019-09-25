@@ -1,0 +1,141 @@
+1. C언어의 특징과 장점을 적으시오.
+
+1)UNIX 운영체제의 기본이 되는 언어이다.
+2)함수를 활용하여 구조적 또는 모듈식 구현이 쉽다.
+3)시스템간의 호환 및 이식성이 좋다.
+4)고급 및 저급언어간의 인터페이스가 용이하다.
+5)관계 및 증강 연산자등 풍부한 연산자를 지원한다.
+6)포인터를 이용한 주소지정 및 주소연산이 가능하다.
+7)동적 메모리 관리에 의한 메모리 관리가 가능하다.
+8)주소지정에 의한 하드웨어 제어가 가능하다.
+
+
+2. C언어의 활용에 대해 적으시오.
+
+운영체제(os)등의 시스템을 프로그래밍 할 때, 프로그래밍 언어의 컴파일러나 실행도구,
+여러 응용 소프트웨어들에 활용된다.
+
+
+3. 두 실수를 메모리에 초기화 더하고 화면에 출력하시오.
+
+#include<stdio.h>
+void main() {
+  float a, b, c;
+  a = 2.5;
+  b = 3.5;
+  c = a + b;
+  printf("%f\n", c);
+}
+
+
+4. 두 실수를 키보드로 받고 더해서 화면에 출력하시오.
+
+#include<stdio.h>
+void main() {
+  float a, b, c;
+  scanf("%f", &a);
+  scanf("%f", &b);
+  c = a + b;
+  printf("%f\n", c);
+}
+
+
+5. 두 실수를 메모리에 저장하고 함수 add()를 활용하여 더한 결과를 리턴 받아 화면에 출력하시오.
+
+#include<stdio.h>
+float add (float a, float b) {
+  float c;
+  c = a + b;
+  return(c);
+int main() {
+  float a = 2.5, b= 3.5 ;
+  float sum;
+  sum = add(a,b);
+  printf ("%f\n", sum) ;
+}
+
+
+6. my.txt에 33과 22가 들어 있다. 이를 읽고 더하고 결과를 출력하시오.
+
+#include<stdio.h>
+int main() {
+  int a, b, c;
+  FILE* fp;
+  fp = fopen("my.txt", "r");
+  fscanf(fp, "%d%d", &a, &b);
+  fclose(fp);
+  c = a + b;
+  printf("%d\n", c);
+}
+
+
+7. 3개의 과일을 {"Banana", "Orange", "Kiwi"} 초기화 하고 화면에 출력하시오.
+
+#include<stdio.h>
+int main() {
+  int i;
+  char c1[7] = "Banana";
+  char c2[7] = "Orange";
+  char c3[5] = "Kiwi";
+  printf("%s\n%s\n%s", c1, c2, c3);
+}
+
+
+8. 곱셈용 명령창 계산기를 구현하시오. 매개변수가 2개 이하면 프로그램이 종료된다. 예) mul 10 * 2 결과) 20
+
+#include<stdio.h>
+#include<stdlib.h>
+int main(int n, char* v[]) {
+  int a, b, c;
+  if (n < 2) {
+    printf("매개변수가 모자랍니다.\n");
+    exit(0);
+  }
+  a = atoi(v[1]);
+  b = atoi(v[3]);
+  switch (v[2][0]) {
+  case '*': c = a * b; break;
+  default: break;
+  }
+  printf("%d\n", c);
+}
+
+
+9. 두 명의 {이름, 나이, 이메일}을 구조체 배열에 초기화하고 화면에 출력하시오.
+
+#include<stdio.h>
+#include<string.h>
+struct User {
+  char b[80];
+  int age;
+  char c[80];
+};
+int main() {
+  int i;
+  struct User we[2] = {
+	{"jcshim", 18, "abc123@naver.com"},
+	{"jskim", 16, "cba321@naver.com"} };
+  for(i=0; i<2; I++)
+  printf("%s\n%d\n%s\n", we[i].b, we[i].age, we[i].c);
+}
+
+
+10. 두 명의 {이름과 나이 그리고 이메일}을 구조체 배열에 초기화하고, 함수 pr()에 포인터 전달하고 화면에 출력하시오.
+
+#include<stdio.h>
+struct User {
+  int age;
+  char n[80], t[80];
+};
+void prn(struct User* we) {
+  printf("%d %s %s\n", we->n, we->age, we->t);
+  we++;
+  printf("%d %s %s\n", we->n, we->age, we->t);
+  we++;
+}
+void main() {
+  struct User we[2] = {
+	{"jcshim", 18, "abc123@naver.com"}, 
+	{"jskim", 16, "cba321@naver.com"} };
+	prn(we);
+}
