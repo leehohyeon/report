@@ -1,0 +1,64 @@
+1. 덧셈, 뺄셈, 곱셈, 나눗셈, 모듈라(%), 몫
+여섯가지를 my.lib로 만들고 test.c 에서 데모를 하는 코드를 작성하시오.
+2. 이 코드를 github에 코멘트와 함께 올리고 링크를 스마트 lms에 제출하시오.
+
+<명령프롬포트>
+cd \
+md anu1
+cd anu1
+cl/c *.c
+lib /OUT:my.lib add.obj sub.obj mod.obj mul.obj div.obj sha.obj
+link test my.lib
+test
+
+<test.c>
+#include <stdio.h>
+int add(int a, int b);
+int sub(int a, int b);
+int mul(int a, int b);
+float div(float a, float b);
+int mod(int a, int b);
+int sha(int a, int b);
+int main(){
+  int a=10, b=3;
+  printf("%d\n",add(a,b));
+  printf("%d\n",sub(a,b));
+  printf("%d\n",mul(a,b));
+  printf("%f\n",div(a,b));
+  printf("%d\n",mod(a,b));
+  printf("%d\n",sha(a,b));
+}
+
+<add.c> //덧셈
+int add(int a, int b){
+  return(a+b);
+}
+<sub.c> //뺄셈
+int sub(int a, int b){
+  return(a-b);
+}
+<mul.c> //곱셈
+int mul(int a, int b){
+  return(a*b);
+}
+<div.c> //나눗셈
+float div(float a, float b){
+  return(a/b);
+}
+<mod.c> //모듈라(%)
+int mod(int a, int b){
+  return(a%b);
+}
+<sha.c> //몫
+int sha(int a, int b){
+  return(a/b);
+}
+
+소감
+
+이호현 : 수업에서 라이브러리 만들기를 배웠는데 처음해보는건데도 쉽게 따라올 수 있도록 잘 가르쳐 주셔서 과제로 활용을 하는 것도 문제없이 잘 해결할 수
+        있었던 것 같고 다른 프로그램을 쓰지 않고도 명령프롬포트에서 이렇게 모든 작업을 할 수 있다는 것이 놀라웠습니다. 명령프롬포트로 또 어떤 작업들을
+        할 수 있는지 궁금해지는 시간이였던 것 같습니다.
+
+이주협 : 오늘 팀프로젝트로 라이브러리 만들기를 해봤는데 C언어 실습하면서 아무 생각없이 썼던것들이 이렇게 만들어지는 것을 보고 흥미와 열정을 돋구었습니다.
+        코딩이란 정말 무궁무진 하다는 것을 느꼈고 더욱 열심히 공부 하겠습니다. 교수님 사랑합니다♥
